@@ -1,0 +1,23 @@
+<div [ngClass]="{'row d-flex justify-content-center': true,'pe-none' : result == 1}">
+  <table>
+    <ng-container *ngFor="let row of gamePad; let ri = index">
+      <tr>
+        <ng-container *ngFor="let col of gamePad; let ci = index">
+          <td>
+            <select [ngModel]="gamePad" (change)="verifyInput(ri, ci, $event)">
+              <option selected disabled>-</option>
+              <option value="X">X</option>
+              <option value="Y">Y</option>
+            </select>
+          </td>
+        </ng-container>
+      </tr>
+    </ng-container>
+  </table>
+</div>
+<div class="text-center">
+  {{ message }}
+</div>
+<div class="text-center" *ngIf="result > 0">
+  <button (click)="prepareGamePad()">Reset</button>
+</div>

@@ -1,0 +1,93 @@
+<div class="container">
+  <form>
+    <div class="mt-2" *ngIf="!submitted">
+      <div class="card">
+        <div class="card-header">
+          Question {{questionIndex + 1 }}: <strong>{{ question.question }}</strong>
+        </div>
+        <div class="card-body">
+          <ul *ngFor="let option of question.options; let qi=index" class="list-group list-group-flush">
+            <li class="list-group-item">
+              <input type="radio" name="option" (click)="collect(question.id, option.id)" [checked]="isChecked(question.id, option.id)"><span class="ml-2">{{ option.option }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5">
+      <button type="button" *ngIf="availablePrev && !submitted" class="btn btn-dark" (click)="getPreviousQuestion();">Previous</button>
+      <button type="button" *ngIf="availableNext && !submitted" class="ml-2 btn btn-warning" (click)="getNextQuestion();">Submit & Next</button>
+      <button type="button" *ngIf="!submitted" class="ml-2 btn btn-info" (click)="openSubmitConfirmModal(submit);">Submit</button>
+      <button type="button" class="ml-2 btn btn-primary" (click)="openResetConfirmModal(resetModal);">Reset / Start Again</button>
+      <button type="button" class="float-right btn btn-danger" disabled>Remaining Seconds : {{remainigTime}}</button>
+    </div>
+  </form>
+  <div *ngIf="error" class="mt-2">
+    <alert-msg type="danger" strongMsg="Error ! " [message]="errorMsg"></alert-msg>
+  </div>
+</div>
+
+<div>
+  <ng-template #resultModal>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Result</h4>
+    </div>
+    <div class="modal-body">
+      <table class="table table-bordered">
+        <tr>
+          <th scope="col">Total Questions</th>
+          <td class="text-center">{{ result.totalquestions }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Correct</th>
+          <td class="text-center">{{ result.correct }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Incorrect</th>
+          <td class="text-center">{{ result.incorrect }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Unattempt</th>
+          <td class="text-center">{{ result.unattempt }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Perecentage</th>
+          <td class="text-center">{{ result.percentage }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Status</th>
+          <td *ngIf="result.percentage < 35" class="text-danger text-center">Fail</td>
+          <td *ngIf="result.percentage >= 35" class="text-success text-center">Pass</td>
+        </tr>
+        <tr>
+          <th scope="col" colspan="2" class="text-right">
+            <button class="btn btn-success" (click)="reset();">Close and Start Again</button>
+            <button type="button" class="ml-2 btn btn-info" (click)="modalRef.hide()">Close</button>
+          </th>
+      </table>
+    </div>
+  </ng-template>
+
+  <ng-template #resetModal>
+    <div class="modal-body text-center">
+      <p>Are you sure want to reset this quiz ?</p>
+      <button type="button" class="btn btn-info" (click)="resetConfirm(true)" >Yes</button>
+      <button type="button" class="ml-2 btn btn-warning" (click)="resetConfirm(false)" >No</button>
+    </div>
+  </ng-template>
+
+  <ng-template #submit>
+    <div class="modal-body text-center">
+      <p>Are you sure want to submit this quiz ?</p>
+      <button type="button" class="btn btn-info" (click)="submitConfirm(true, resultModal)" >Yes</button>
+      <button type="button" class="ml-2 btn btn-warning" (click)="submitConfirm(false)" >No</button>
+    </div>
+  </ng-template>
+
+  <ng-template #timer>
+    <div class="modal-body text-center">
+      <p>Time Up !!</p>
+      <button type="button" class="btn btn-danger" (click)="submitConfirm(true, resultModal)">Yes</button>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,83 @@
+<div>
+  <div class="row">
+    <div class="col-8">
+      <canvas id="canvas" height="400" width="690" class="border"></canvas>
+    </div>
+    <div class="col-4">
+      <button class="btn btn-info" (click)="openModal(template)">Add Shapes</button>
+      <button class="btn btn-primary ml-1" (click)="addText()">Add Text</button>
+      <button class="btn btn-primary ml-1" (click)="addText()">Add Image</button>
+    </div>
+  </div>
+</div>
+
+<div class="mt-4">
+  <strong class="font-italic">Tools :</strong>
+  <table class="table table-bordered">
+  <tr>
+    <td>Height</td>
+    <td>
+      <img src="assets/images/plus.png" class="tools" height="20px" (click)="changeHeight(true)">
+      <img src="assets/images/minus.png" class="ml-2 tools" height="20px" (click)="changeHeight(false)">
+    </td>
+  </tr>
+  <tr>
+    <td>Width</td>
+    <td>
+      <img src="assets/images/plus.png" class="tools" height="20px" (click)="changeWidth(true)"> 
+      <img src="assets/images/minus.png" class="ml-2 tools" height="20px" (click)="changeWidth(false)">
+    </td>
+  </tr>
+  <tr>
+    <td>Color</td>
+    <td><input type="color" (input)="changeColor($event)" class="tools"></td>
+  </tr>
+  <tr>
+    <td>Select All ? </td>
+    <td>
+      <input type="radio" value="true" name="selectAll" [(ngModel)]="isSelectAll" (ngModelChange)="selectAll()"> Yes
+      <input type="radio" value="false" name="selectAll" [(ngModel)]="isSelectAll" (ngModelChange)="selectAll()"> No
+    </td>
+  </tr>
+  <tr>
+    <td>Objct Actions</td>
+    <td>
+      <button class="btn btn-warning" (click)="group()">Make Group</button>
+      <button class="btn btn-danger ml-2" (click)="ungroup()">Ungroup</button>
+      <button class="btn btn-success ml-2" (click)="remove()">Delete</button>
+      <button class="btn btn-success ml-2" (click)="backword()">Move Back</button>
+      <button class="btn btn-primary ml-2" (click)="forward()">Move Forward</button>
+    </td>
+  </tr>
+</table>
+
+<div class="mt-2">
+  <alert-msg *ngIf="error" type="danger" strongMsg="Error !" message="Please select shape"></alert-msg>
+</div>
+</div>
+
+<!--- MODALS --->
+<ng-template #template>
+  <form [formGroup]="shapeform" (submit)="submitForm();">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Select Shape</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div *ngFor="let shape of shapes">
+        <label>
+          <input type="radio" [value]="shape" formControlName="shapes">
+          <span class="ml-1">{{ shape | titlecase }}</span>
+        </label>
+      </div>
+      <div *ngIf="submitted && shapeform.controls.shapes.errors" class="error text-center">
+        <div *ngIf="shapeform.controls.shapes.errors.required">Error : Select Shape</div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-info" type="submit">Add</button>
+    </div>
+  </form>
+</ng-template>

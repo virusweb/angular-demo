@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="d-flex flex-grow-1">
+    <span class="w-100 d-lg-none d-block"></span>
+    <a class="navbar-brand d-none d-lg-inline-block" routerLink="/" routerLinkActive="active">
+      Angular Demo
+    </a>
+    <div class="w-100 text-right">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+  <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+    <ul class="navbar-nav ml-auto flex-nowrap">
+      <li class="nav-item">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+          class="nav-link m-2 menu-item" *ngIf="!authservice.isLoggedIn()">Login</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/register" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+          class="nav-link m-2 menu-item" *ngIf="!authservice.isLoggedIn()">Register</a>
+      </li>
+      <li class="nav-item" *ngIf="authservice.isLoggedIn()">
+        <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+          class="nav-link m-2 menu-item" *ngIf="!authservice.checkForAdmin()">Home</a>
+      </li>
+      <li class="nav-item" *ngIf="authservice.isLoggedIn()">
+        <a routerLink="/quiz" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+          class="nav-link m-2 menu-item" *ngIf="!authservice.checkForAdmin()">Quiz</a>
+      </li>
+      <li class="nav-item" *ngIf="authservice.isLoggedIn()">
+        <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+          class="nav-link m-2 menu-item" *ngIf="authservice.checkForAdmin()">Dashboard</a>
+      </li>
+      <li class="nav-item" *ngIf="authservice.isLoggedIn()">
+        <a routerLink="/my-profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+          class="nav-link m-2 menu-item">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/fabric-example" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+          class="nav-link m-2 menu-item">Fabric Examples</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/movies" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+          class="nav-link m-2 menu-item">Component Communication Example</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/tic-toe-game" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+          class="nav-link m-2 menu-item">Tic Toe Game</a>
+      </li>
+      <li class="nav-item">
+        <a href="javascript:void(0)" (click)="doLogout();" class="nav-link m-2 menu-item" *ngIf="authservice.isLoggedIn()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>

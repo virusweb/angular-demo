@@ -1,0 +1,12 @@
+<div bsModal #confirmationModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+  aria-labelledby="dialog-child-name">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <p>Are You Sure Want To Delete ?</p>
+        <button type="button" class="btn btn-primary" (click)="removeIndex()">Yes</button>
+        <button type="button" class="btn btn-danger ml-2" (click)="hideChildModal()">No</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="card">
+  <div class="card-header">
+    <strong>Edit User</strong>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="editForm" (ngSubmit)="doUpdate()">
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Username</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" placeholder="Doe" formControlName="user_name">
+          <div *ngIf="submitEditForm && editForm.controls.user_name.errors" class="error">
+            <div *ngIf="editForm.controls.user_name.errors.required">Username is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" placeholder="John" formControlName="first_name">
+          <div *ngIf="submitEditForm && editForm.controls.first_name.errors" class="error">
+            <div *ngIf="editForm.controls.first_name.errors.required">Fist name is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Last Name</label>
+        <div class="col-sm-10">
+          <input type="txt" class="form-control" placeholder="Doe" formControlName="last_name">
+          <div *ngIf="submitEditForm && editForm.controls.first_name.errors" class="error">
+            <div *ngIf="editForm.controls.first_name.errors.required">Fist name is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Code</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" placeholder="1411545" formControlName="employee_code">
+          <div *ngIf="submitEditForm && editForm.controls.employee_code.errors" class="error">
+            <div *ngIf="editForm.controls.employee_code.errors.required">Code is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Designation</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" placeholder="Designation" formControlName="employee_designation">
+          <div *ngIf="submitEditForm && editForm.controls.employee_designation.errors" class="error">
+            <div *ngIf="editForm.controls.employee_designation.errors.required">Designation is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="float-right">
+        <input type="submit" class="btn btn-info" value="Save">
+        <input type="button" class="btn btn-success ml-2" value="Cancel" (click)="cancel()">
+      </div>
+    </form>
+  </div>
+</div>
+<div class="text-center mt-5" *ngIf="success">
+  <alert-msg type="success" dismissible="true" strongMsg="Well done! " message="You successfully update this user."></alert-msg>
+</div>

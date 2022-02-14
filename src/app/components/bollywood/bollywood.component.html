@@ -1,0 +1,31 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td colspan="4" class="text-center"><strong>Bollywood Movies</strong></td>
+    </tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngIf="movieList.length > 0; else nodata">
+      <tr *ngFor="let movie of movieList; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ movie.name | titlecase }}</td>
+        <td>{{ movie.year | number }}</td>
+        <td>
+          <button (click)="manageBollywoodMovies('edit',movie,i)">Edit</button>
+          <button class="ml-2" (click)="manageBollywoodMovies('remove', null, i - 1 )">Delete</button>
+          <button class="ml-2" (click)="manageBollywoodMovies('transfer', movie, i)">Move to Hollywood</button>
+        </td>
+      </tr>
+    </ng-container>
+    <ng-template #nodata>
+      <tr>
+        <td colspan="4" class="text-center">No Movies</td>
+      </tr>
+    </ng-template>
+  </tbody>
+</table>

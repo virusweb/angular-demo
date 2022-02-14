@@ -1,0 +1,224 @@
+[
+    {
+    "id" : 1,
+    "question": "What is captal of india ?",
+    "options": [
+      {
+        "id": 1,
+        "option": "Delhi"
+      },
+      {
+        "id": 2,
+        "option": "Rajsthan"
+      },
+      {
+        "id": 3,
+        "option": "Gujarat"
+      },
+      {
+        "id": 4,
+        "option": "Maharastra"
+      }
+    ],
+    "answerID": 1
+  },
+  {
+    "id" : 2,
+    "question": "Who is brother or lord ram ?",
+    "options": [
+      {
+        "id": 1,
+        "option": "Jatayu"
+      },
+      {
+        "id": 2,
+        "option": "Vali"
+      },
+      {
+        "id": 3,
+        "option": "Neel"
+      },
+      {
+        "id": 4,
+        "option": "Lakshman"
+      }
+    ],
+    "answerID": 4
+  },
+  {
+    "id" : 3,
+    "question": "Who is invent 'AGNEE' missile ??",
+    "options": [
+      {
+        "id": 1,
+        "option": "Homi Bhabha"
+      },
+      {
+        "id": 2,
+        "option": "Vikram Sarabhai"
+      },
+      {
+        "id": 3,
+        "option": "APJ Abdul Kalam"
+      },
+      {
+        "id": 4,
+        "option": "Ramanujam"
+      }
+    ],
+    "answerID": 3
+  },
+  {
+    "id" : 4,
+    "question": "Is PH is less than 7 its called as ?",
+    "options": [
+      {
+        "id": 1,
+        "option": "Pure Water"
+      },
+      {
+        "id": 2,
+        "option": "Basic"
+      },
+      {
+        "id": 3,
+        "option": "Nutral"
+      },
+      {
+        "id": 4,
+        "option": "Acidic"
+      }
+    ],
+    "answerID": 4
+  },
+  {
+    "id" : 5,
+    "question": "is static method called by object ?",
+    "options": [
+      {
+        "id": 1,
+        "option": "No"
+      },
+      {
+        "id": 2,
+        "option": "Yes"
+      }
+    ],
+    "answerID": 1
+  },
+  {
+    "id" : 6,
+    "question": "Who killed bahubali ?",
+    "options": [
+      {
+        "id": 1,
+        "option": "Bhallal Dev"
+      },
+      {
+        "id": 2,
+        "option": "Katappa"
+      },
+      {
+        "id": 3,
+        "option": "Mahavir"
+      },
+      {
+        "id": 4,
+        "option": "Mahendra"
+      }
+    ],
+    "answerID": 2
+  },
+  {
+    "id" : 7,
+    "question": "Burj khalifa is located at ?",
+    "options": [
+      {
+        "id": 1,
+        "option": "Abu Dhabi"
+      },
+      {
+        "id": 2,
+        "option": "Sharjahan"
+      },
+      {
+        "id": 3,
+        "option": "Dubai"
+      },
+      {
+        "id": 4,
+        "option": "None of the above"
+      }
+    ],
+    "answerID": 3
+  },
+  {
+    "id" : 8,
+    "question": "Who is president of india in 2020 ?",
+    "options": [
+      {
+        "id": 1,
+        "option": "Amit Shah"
+      },
+      {
+        "id": 2,
+        "option": "Narendra Modi"
+      },
+      {
+        "id": 3,
+        "option": "Ramnath Kovind"
+      },
+      {
+        "id": 4,
+        "option": "Rajnath Singh"
+      }
+    ],
+    "answerID": 3
+  },
+  {
+    "id" : 9,
+    "question": "In which year america attack hiroshima and nagasaki via atom bomb ?",
+    "options": [
+      {
+        "id": 1,
+        "option": "1940"
+      },
+      {
+        "id": 2,
+        "option": "1943"
+      },
+      {
+        "id": 3,
+        "option": "1945"
+      },
+      {
+        "id": 4,
+        "option": "1947"
+      }
+    ],
+    "answerID": 3
+  },
+  {
+    "id" : 10,
+    "question": "Which is not e-commarce website ?",
+    "options": [
+      {
+        "id": 1,
+        "option": "amazon.com"
+      },
+      {
+        "id": 2,
+        "option": "alibaba.com"
+      },
+      {
+        "id": 3,
+        "option": "flipkart.com"
+      },
+      {
+        "id": 4,
+        "option": "facebook.com"
+      }
+    ],
+    "answerID": 4
+  }
+]  
