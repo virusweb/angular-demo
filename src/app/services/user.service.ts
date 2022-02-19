@@ -11,6 +11,7 @@ import { Subject } from 'rxjs';
 export class UserService {
 
   transferMovie = new Subject();
+  transferData = new Subject();
   constructor(private http: HttpClient) { }
 
   getSingleUser(token): any {

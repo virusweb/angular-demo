@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-parent',
@@ -11,9 +12,10 @@ export class ParentComponent implements OnInit {
   myMessageToChild:string = null;
   childMessage:string = null;
   
-  constructor() { }
+  constructor(private userservice:UserService) { }
 
   ngOnInit() {
+    this.receiveMulticastData();
   }
 
   sendMessageToChild(message):void {
@@ -24,4 +26,11 @@ export class ParentComponent implements OnInit {
     this.childMessage = message;
   }
 
+  receiveMulticastData():void {
+    this.userservice.transferData.subscribe((res: any) => {
+      if(res.component == "parent") {
+        this.childMessage = res.message;
+      }
+    });
+  }
 }

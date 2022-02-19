@@ -56,7 +56,7 @@ const routes: Routes = [
     component: TictoegameComponent,
   },
   {
-    path: 'parent',
+    path: 'parent-child-communication',
     component: ParentComponent,
   },
   {

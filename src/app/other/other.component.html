@@ -1,3 +1,4 @@
-<p>
-  other works!
-</p>
+<div>
+    <button (click)="multicast('parent','Message to parent from other component')">Send To Parent</button>
+    <button class="ml-2" (click)="multicast('child','Message to child from other component')">Send To Child</button>
+</div>
