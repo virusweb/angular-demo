@@ -1,0 +1,11 @@
+<p>Parent Component</p>
+<div>
+  <input type="text" [(ngModel)]="message">
+  <button class="ml-2" (click)="sendMessageToChild(message)">Send</button>
+</div>
+<div class="mt-2" *ngIf="childMessage">
+  Message From Child : {{ childMessage }}
+</div>
+<div class="mt-2">
+  <app-child [parentMessage]="myMessageToChild" (messageEventParent)="showChildMessage($event)"></app-child> <!--Child Component-->
+</div>

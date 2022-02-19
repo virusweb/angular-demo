@@ -1,0 +1,8 @@
+<p>Child Component</p>
+<div>
+  <input type="text" [(ngModel)]="message">
+  <button class="ml-2" (click)="sendMessageToParentCompnent(message)">Send</button>
+</div>
+<div class="mt-2" *ngIf="parentMessage">
+  Message From Parent : {{ parentMessage }}
+</div>

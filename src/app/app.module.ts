@@ -35,6 +35,9 @@ import { FormComponent } from './components/form/form.component';
 import { HollywoodComponent } from './components/hollywood/hollywood.component';
 import { BollywoodComponent } from './components/bollywood/bollywood.component';
 import { TictoegameComponent } from './components/tictoegame/tictoegame.component';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
+import { OtherComponent } from './other/other.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,9 @@ import { TictoegameComponent } from './components/tictoegame/tictoegame.componen
     HollywoodComponent,
     BollywoodComponent,
     TictoegameComponent,
+    ParentComponent,
+    ChildComponent,
+    OtherComponent,
   ],
   imports: [
     BrowserModule,

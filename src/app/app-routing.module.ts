@@ -15,6 +15,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FabricExampleComponent } from './components/fabric-example/fabric-example.component';
 import { FormComponent } from './components/form/form.component';
 import { TictoegameComponent } from './components/tictoegame/tictoegame.component';
+import { ParentComponent } from './parent/parent.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: 'tic-toe-game',
     component: TictoegameComponent,
+  },
+  {
+    path: 'parent',
+    component: ParentComponent,
   },
   {
     path: '**',
